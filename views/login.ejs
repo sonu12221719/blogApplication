@@ -1,0 +1,104 @@
+<style>
+    /* styles.css */
+    body, html {
+        height: 100%;
+        margin: 0;
+        font-family: Arial, sans-serif;
+    }
+
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+
+    main {
+        flex-grow: 1;
+        background-color: #212529;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .box {
+        width: 30vw;
+        height: auto;
+        background-color: #f8f9fa;
+        padding: 3%;
+        margin-left: 34%;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+
+    .profile img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        margin-bottom: 10px;
+    }
+
+    .form-box input,
+    .form-box button {
+        width: 100%;
+        padding: 10px;
+        margin: 5px 0;
+        border: 1px solid #ced4da;
+        border-radius: 5px;
+        background-color: #fff;
+    }
+
+    .form-box input[type="submit"] {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+    }
+
+    .form-box input[type="submit"]:hover {
+        background-color: #0056b3;
+    }
+
+    .form-box a {
+        text-decoration: none;
+        color: #007bff;
+        margin-top: 10px;
+        display: block;
+    }
+</style>
+
+<div class="wrapper">
+    <header>
+        <%- include('./layouts/header.ejs')%>
+    </header>
+
+    <main>
+        <!-- Main content -->
+        <div class="box">
+            <div class="profile">
+                <img src="\images\man_5-1024.webp" alt="Profile Picture">
+                <!-- Replace "profile-pic.jpg" with the actual path to your profile picture -->
+            </div>
+            <h1 class="text-white">Login</h1>
+
+            <% if(typeof message !== 'undefined') { %>
+                <p style="color: red;"><%= message %></p>
+            <% } %> 
+
+            <div class="form-box">
+                <form action="" method="POST">
+                    <input type="email" name="email" placeholder="Enter Email" required>
+                    <input type="password" name="password" placeholder="Enter Password" required>
+                    <input type="submit" value="Login">
+                </form>
+                <a href="/forget-password">Forget Password</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <!-- Footer content -->
+        <%- include('./layouts/footer.ejs')%>
+    </footer>
+</div>

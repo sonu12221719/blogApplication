@@ -1,0 +1,86 @@
+<style>
+    /* styles.css */
+    body,
+    html {
+        height: 100%;
+        margin: 0;
+        font-family: Arial, sans-serif;
+    }
+
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+
+    main {
+        flex-grow: 1;
+        background-color: #212529;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .box {
+        width: 30vw;
+        height: auto;
+        background-color: #f8f9fa;
+        padding: 3%;
+        margin-left: 34%;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-box input,
+    .form-box textarea {
+        width: 100%;
+        padding: 10px;
+        margin: 5px 0;
+        border: 1px solid #ced4da;
+        border-radius: 5px;
+        background-color: #fff;
+    }
+
+    .form-box input[type="submit"] {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+    }
+
+    .form-box input[type="submit"]:hover {
+        background-color: #0056b3;
+    }
+</style>
+
+    <div class="wrapper">
+        <header>
+            <%- include('./layouts/header.ejs')%>
+        </header>
+
+        <main>
+            <!-- Main content -->
+            <div class="box">
+                <h1 style="text-align: center; color: #007bff;">Blog Setup</h1>
+                <form action="" method="POST" enctype="multipart/form-data" class="form-box">
+                    <input type="text" name="blog_title" placeholder="Enter Blog Title" required>
+                    <textarea name="description" placeholder="Enter Description" required></textarea>
+                    <input type="text" name="name" placeholder="Enter Admin Name" required>
+                    <input type="email" name="email" placeholder="Enter Email" required>
+                    <input type="password" name="password" placeholder="Enter Password" required>
+                    <input type="submit" value="Blog Setup">
+                </form>
+            </div>
+        </main>
+
+        <footer>
+            <%- include('./layouts/footer.ejs')%>
+        </footer>
+    </div>
+
+    <!-- GSAP Animation Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script>
+        gsap.from('.box', { opacity: 0, y: -50, duration: 1, delay: 0.5, ease: "power2.out" });
+    </script>

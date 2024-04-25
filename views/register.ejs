@@ -1,0 +1,96 @@
+<style>
+    /* styles.css */
+    body, html {
+        height: 100%;
+        margin: 0;
+    }
+
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+
+    main {
+        flex-grow: 1;
+        background-color: #212529;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .box {
+        width: 30vw;
+        background-color: #f8f9fa;
+        padding: 3%;
+        margin-left: 34%;
+        margin-top: 3%;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-box {
+        margin-top: 20px;
+    }
+
+    .form-box input[type="text"],
+    .form-box input[type="email"],
+    .form-box input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ced4da;
+        border-radius: 5px;
+        background-color: #fff;
+    }
+
+    .form-box input[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: #007bff;
+        color: #fff;
+        cursor: pointer;
+    }
+
+    .form-box input[type="submit"]:hover {
+        background-color: #0056b3;
+    }
+
+    .message {
+        color: green;
+        margin-top: 10px;
+    }
+</style>
+
+<div class="wrapper">
+    <header>
+        <%- include('./layouts/header.ejs') %>
+    </header>
+
+    <main>
+        <!-- Main content -->
+        <div class="box">
+            <h1 style="text-align: center; color: #007bff;">Register</h1>
+
+            <% if (typeof message !== 'undefined') { %>
+                <p class="message"><%= message %></p>
+            <% } %>
+
+            <div class="form-box">
+                <form action="" method="POST">
+                    <input type="text" name="name" placeholder="Enter Name" required>
+                    <input type="email" name="email" placeholder="Enter Email" required>
+                    <input type="password" name="password" placeholder="Enter Password" required>
+                    <input type="submit" value="Register">
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <!-- Footer content -->
+    <%- include('./layouts/footer.ejs') %>
+    </footer>
+</div>
